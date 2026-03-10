@@ -474,8 +474,8 @@ body.dark .cheat-section{background:#1a1a2e!important;}
     <div class="login-title">BIEK 2026</div>
     <div class="login-sub">Complete Study Guide — Login to save your progress</div>
     <div class="login-tabs">
-      <button class="login-tab active" onclick="authTab('login')">Login</button>
-      <button class="login-tab" onclick="authTab('signup')">Sign Up</button>
+      <button class="login-tab active" id="tabLogin" onclick="authTab('login')">Login</button>
+      <button class="login-tab" id="tabSignup" onclick="authTab('signup')">Sign Up</button>
     </div>
     <div class="login-err" id="authErr"></div>
     <input class="login-input" id="authEmail" type="email" placeholder="Email address" autocomplete="email">
@@ -485,7 +485,7 @@ body.dark .cheat-section{background:#1a1a2e!important;}
     <div class="login-divider">or</div>
     <button class="login-btn" style="background:linear-gradient(135deg,#374151,#4b5563);box-shadow:none" onclick="guestLogin()">👤 Continue as Guest</button>
     <div class="login-guest" onclick="authTab(currentTab==='login'?'signup':'login')">
-      Don't have an account? <span id="authSwitch" style="color:#a855f7">Sign Up</span>
+      <span id="guestText">Don't have an account?</span> <span id="authSwitch" style="color:#a855f7;font-weight:800">Sign Up</span>
     </div>
   </div>
 </div>
@@ -4823,8 +4823,8 @@ function applyState(state) {
 // ══════════════════════════════════════════════════════════
 
 // ⚠️ APNI SUPABASE VALUES YAHAN DALO (setup guide dekho)
-const SUPABASE_URL = window.SUPABASE_URL || 'https://kmkkgedjsetbvznbuaxw.supabase.co';
-const SUPABASE_ANON_KEY = window.SUPABASE_ANON_KEY || 'sb_publishable_j2sPbESMkXbgWei782-Y2w_WdjPcKjd';
+const SUPABASE_URL = window.SUPABASE_URL || 'YOUR_SUPABASE_URL';
+const SUPABASE_ANON_KEY = window.SUPABASE_ANON_KEY || 'YOUR_SUPABASE_ANON_KEY';
 
 // Get or create a unique user ID (stored in localStorage just as identifier)
 function getUserId() {
@@ -5807,20 +5807,26 @@ let currentTab = 'login';
 
 function authTab(tab) {
   currentTab = tab;
-  document.querySelectorAll('.login-tab').forEach((t,i) => t.classList.toggle('active', (i===0&&tab==='login')||(i===1&&tab==='signup')));
+  // Toggle active class on buttons
+  document.querySelectorAll('.login-tab').forEach(t => t.classList.remove('active'));
+  if(tab === 'login') document.getElementById('tabLogin').classList.add('active');
+  else document.getElementById('tabSignup').classList.add('active');
+
   const nameField = document.getElementById('authName');
   const btn = document.getElementById('authBtn');
   const switchEl = document.getElementById('authSwitch');
+  const guestText = document.getElementById('guestText');
+
   if(tab === 'signup') {
     nameField.style.display = 'block';
     btn.textContent = '✨ Create Account';
-    switchEl.textContent = 'Login';
-    document.querySelector('.login-guest').firstChild.textContent = "Already have an account? ";
+    if(switchEl) switchEl.textContent = 'Login instead';
+    if(guestText) guestText.textContent = 'Already have an account?';
   } else {
     nameField.style.display = 'none';
     btn.textContent = '🔓 Login';
-    switchEl.textContent = 'Sign Up';
-    document.querySelector('.login-guest').firstChild.textContent = "Don't have an account? ";
+    if(switchEl) switchEl.textContent = "Sign Up";
+    if(guestText) guestText.textContent = "Don't have an account?";
   }
   document.getElementById('authErr').style.display = 'none';
 }
