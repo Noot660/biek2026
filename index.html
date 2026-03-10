@@ -4479,7 +4479,71 @@ function printCheatsheet() {
     h3{margin:0 0 8px;font-size:12px}
     .cheat-section{margin-bottom:16px;padding:12px;border:2px solid #ccc;border-radius:8px;page-break-inside:avoid}
     @media print{@page{size:A4;margin:15mm}}
-  </style></head><body>${content}</body></html>`);
+  </style></head><body>${content}
+<script>
+// Run after ALL scripts loaded — check login
+(function initAuth() {
+  // Hide main content until auth checked
+  const overlay = document.getElementById('loginOverlay');
+  if(!overlay) return;
+  
+  // Check saved user
+  try {
+    const stored = localStorage.getItem('biek_current_user');
+    if(stored) {
+      const user = JSON.parse(stored);
+      if(user && user.id) {
+        // Already logged in — hide overlay
+        overlay.style.display = 'none';
+        // Show user pill
+        const pill = document.getElementById('userPill');
+        if(pill) pill.style.display = 'flex';
+        const pn = document.getElementById('pillName');
+        if(pn) pn.textContent = user.name;
+        const av = document.getElementById('avatarInitial');
+        if(av) av.textContent = user.name.charAt(0).toUpperCase();
+        const mn = document.getElementById('menuName');
+        if(mn) mn.textContent = user.name;
+        const me = document.getElementById('menuEmail');
+        if(me) me.textContent = user.email || (user.isGuest ? 'Guest mode' : '');
+        const ma = document.getElementById('menuAvatar');
+        if(ma) ma.textContent = user.name.charAt(0).toUpperCase();
+        window.currentUser = user;
+        return;
+      }
+    }
+  } catch(e) {}
+  // No saved user — show login
+  overlay.style.display = 'flex';
+})();
+
+// Fix authTab toggle
+window.authTab = function(tab) {
+  window.currentTab = tab;
+  var tl = document.getElementById('tabLogin');
+  var ts = document.getElementById('tabSignup');
+  if(tl) tl.classList.toggle('active', tab==='login');
+  if(ts) ts.classList.toggle('active', tab==='signup');
+  var nameField = document.getElementById('authName');
+  var btn = document.getElementById('authBtn');
+  var switchEl = document.getElementById('authSwitch');
+  var guestText = document.getElementById('guestText');
+  if(tab === 'signup') {
+    if(nameField) nameField.style.display = 'block';
+    if(btn) btn.textContent = '✨ Create Account';
+    if(switchEl) switchEl.textContent = 'Login instead';
+    if(guestText) guestText.textContent = 'Already have an account?';
+  } else {
+    if(nameField) nameField.style.display = 'none';
+    if(btn) btn.textContent = '🔓 Login';
+    if(switchEl) switchEl.textContent = 'Sign Up';
+    if(guestText) guestText.textContent = "Don't have an account?";
+  }
+  var err = document.getElementById('authErr');
+  if(err) err.style.display = 'none';
+};
+</script>
+</body></html>`);
   w.document.close();
   setTimeout(()=>w.print(),400);
 }
@@ -5770,11 +5834,6 @@ function closeSplit() { document.getElementById('splitOverlay').style.display='n
 // INIT
 // ══════════════════════════════════════════════════════════
 window.addEventListener('load', async () => {
-  // Check if user already logged in
-  if(!checkExistingLogin()) {
-    // Show login screen — load will happen after login
-    return;
-  }
   const hasBaked = loadBakedState();
   if(!hasBaked) await loadFromLocalStorage(); // Supabase DB or localStorage fallback
   addBookmarkButtons();
@@ -5794,7 +5853,6 @@ window.addEventListener('load', async () => {
   if(pd) pd.value = new Date().toISOString().split('T')[0];
   showToast('💾 Progress restored!');
 });
-</script>
 
 
 // ══════════════════════════════════════════════════════════
@@ -6171,5 +6229,7 @@ function checkExistingLogin() {
 // ══════════════════════════════════════════════════════════
 // END NEW FEATURES
 // ══════════════════════════════════════════════════════════
+
+</script>
 
 </div></body></html>
