@@ -387,178 +387,139 @@ body.dark div[style*="background:#f8fafc"],body.dark div[style*="background:#f1f
 body.dark #flashCard{background:#0f172a!important;border-color:#334155!important;}
 body.dark .cheat-section{background:#1a1a2e!important;}
 </style><style>@keyframes spin{to{transform:rotate(360deg)}}</style>
-<!-- NEW FEATURES STYLES -->
 <style>
-/* LOGIN OVERLAY */
-#loginOverlay{position:fixed;inset:0;z-index:9999;background:linear-gradient(135deg,#0f0f1a 0%,#1e1e3e 50%,#0f1a2e 100%);display:flex;align-items:center;justify-content:center;padding:20px;}
-.login-card{background:rgba(255,255,255,.05);border:1.5px solid rgba(255,255,255,.12);border-radius:28px;padding:44px 40px;width:min(440px,100%);backdrop-filter:blur(20px);box-shadow:0 40px 80px rgba(0,0,0,.5);text-align:center;}
-.login-logo{font-size:3rem;margin-bottom:8px;}
-.login-title{font-size:1.8rem;font-weight:900;color:#fff;margin-bottom:4px;}
-.login-sub{color:rgba(255,255,255,.5);font-size:.9rem;margin-bottom:32px;}
-.login-tabs{display:flex;background:rgba(255,255,255,.07);border-radius:14px;padding:4px;margin-bottom:28px;gap:4px;}
-.login-tab{flex:1;padding:10px;border:none;background:transparent;color:rgba(255,255,255,.5);border-radius:11px;font-weight:700;cursor:pointer;font-family:inherit;font-size:.88rem;transition:all .2s;}
-.login-tab.active{background:rgba(255,255,255,.15);color:#fff;}
-.login-input{width:100%;background:rgba(255,255,255,.07);border:1.5px solid rgba(255,255,255,.12);border-radius:14px;padding:14px 18px;color:#fff;font-family:inherit;font-size:.95rem;margin-bottom:12px;outline:none;transition:border .2s;box-sizing:border-box;}
-.login-input:focus{border-color:rgba(168,85,247,.6);}
-.login-input::placeholder{color:rgba(255,255,255,.3);}
-.login-btn{width:100%;padding:15px;background:linear-gradient(135deg,#7c3aed,#a855f7);border:none;border-radius:14px;color:#fff;font-size:1rem;font-weight:800;cursor:pointer;font-family:inherit;margin-top:4px;transition:transform .15s,box-shadow .15s;box-shadow:0 8px 24px rgba(168,85,247,.35);}
-.login-btn:hover{transform:translateY(-2px);box-shadow:0 12px 32px rgba(168,85,247,.45);}
-.login-err{background:rgba(239,68,68,.15);border:1px solid rgba(239,68,68,.3);border-radius:10px;padding:10px 14px;color:#fca5a5;font-size:.85rem;margin-bottom:12px;display:none;}
-.login-guest{color:rgba(255,255,255,.4);font-size:.82rem;margin-top:16px;cursor:pointer;text-decoration:underline;}
-.login-guest:hover{color:rgba(255,255,255,.7);}
+/* LOGIN */
+#loginOverlay{position:fixed;inset:0;z-index:9999;background:linear-gradient(135deg,#0f0f1a,#1e1e3e,#0f1a2e);display:flex;align-items:center;justify-content:center;padding:20px;}
+.lcard{background:rgba(255,255,255,.06);border:1.5px solid rgba(255,255,255,.13);border-radius:26px;padding:40px 36px;width:min(420px,100%);text-align:center;box-shadow:0 40px 80px rgba(0,0,0,.5);}
+.ltabs{display:flex;background:rgba(255,255,255,.07);border-radius:12px;padding:3px;margin-bottom:24px;gap:3px;}
+.ltab{flex:1;padding:10px;border:none;background:transparent;color:rgba(255,255,255,.45);border-radius:10px;font-weight:700;cursor:pointer;font-family:inherit;font-size:.88rem;transition:all .2s;}
+.ltab.active{background:rgba(255,255,255,.14);color:#fff;}
+.linp{width:100%;background:rgba(255,255,255,.07);border:1.5px solid rgba(255,255,255,.12);border-radius:12px;padding:13px 16px;color:#fff;font-family:inherit;font-size:.92rem;margin-bottom:10px;outline:none;box-sizing:border-box;transition:border .2s;}
+.linp:focus{border-color:rgba(168,85,247,.7);}
+.linp::placeholder{color:rgba(255,255,255,.28);}
+.lbtn{width:100%;padding:14px;background:linear-gradient(135deg,#7c3aed,#a855f7);border:none;border-radius:12px;color:#fff;font-size:.97rem;font-weight:800;cursor:pointer;font-family:inherit;box-shadow:0 8px 24px rgba(168,85,247,.35);transition:transform .15s;}
+.lbtn:hover{transform:translateY(-2px);}
+.lbtn2{width:100%;padding:13px;background:rgba(255,255,255,.07);border:1.5px solid rgba(255,255,255,.12);border-radius:12px;color:rgba(255,255,255,.6);font-size:.9rem;font-weight:700;cursor:pointer;font-family:inherit;margin-top:8px;}
+.lerr{background:rgba(239,68,68,.15);border:1px solid rgba(239,68,68,.3);border-radius:9px;padding:9px 13px;color:#fca5a5;font-size:.83rem;margin-bottom:10px;display:none;}
+.lswitch{color:rgba(255,255,255,.35);font-size:.8rem;margin-top:14px;cursor:pointer;}
+.lswitch b{color:#a855f7;}
 /* USER PILL */
-#userPill{position:fixed;top:14px;right:14px;z-index:200;background:rgba(30,30,46,.92);border:1.5px solid rgba(255,255,255,.12);border-radius:50px;padding:7px 14px 7px 9px;backdrop-filter:blur(10px);display:none;align-items:center;gap:8px;cursor:pointer;transition:all .2s;}
-#userPill:hover{background:rgba(30,30,46,1);}
-.user-avatar{width:28px;height:28px;border-radius:50%;background:linear-gradient(135deg,#7c3aed,#a855f7);display:flex;align-items:center;justify-content:center;font-size:.8rem;font-weight:900;color:#fff;flex-shrink:0;}
-.user-name{font-size:.82rem;font-weight:700;color:#e2e8f0;max-width:100px;overflow:hidden;text-overflow:ellipsis;white-space:nowrap;}
-/* NOTIF STACK */
-#notifStack{position:fixed;top:20px;left:50%;transform:translateX(-50%);z-index:8000;display:flex;flex-direction:column;gap:8px;pointer-events:none;width:min(360px,90vw);}
-.notif-toast{background:#1e1e2e;color:#fff;border-radius:14px;padding:13px 16px;display:flex;align-items:center;gap:10px;box-shadow:0 8px 30px rgba(0,0,0,.3);border-left:4px solid #a855f7;animation:slideInDown .3s ease;pointer-events:all;}
-.notif-toast.success{border-left-color:#00b894;}
-.notif-toast.warning{border-left-color:#f59e0b;}
-.notif-toast.error{border-left-color:#ef4444;}
-@keyframes slideInDown{from{opacity:0;transform:translateY(-20px)}to{opacity:1;transform:translateY(0)}}
-.notif-icon{font-size:1.2rem;flex-shrink:0;}
-.notif-body{flex:1;}
-.notif-title{font-size:.85rem;font-weight:800;}
-.notif-msg{font-size:.78rem;color:rgba(255,255,255,.6);margin-top:1px;}
-.notif-close{cursor:pointer;opacity:.5;font-size:1rem;flex-shrink:0;}
+#upill{position:fixed;top:12px;right:12px;z-index:300;background:rgba(20,20,40,.93);border:1.5px solid rgba(255,255,255,.12);border-radius:50px;padding:6px 14px 6px 8px;display:none;align-items:center;gap:8px;cursor:pointer;backdrop-filter:blur(10px);}
+.uav{width:28px;height:28px;border-radius:50%;background:linear-gradient(135deg,#7c3aed,#a855f7);display:flex;align-items:center;justify-content:center;font-size:.82rem;font-weight:900;color:#fff;flex-shrink:0;}
+.unm{font-size:.8rem;font-weight:700;color:#e2e8f0;max-width:110px;overflow:hidden;text-overflow:ellipsis;white-space:nowrap;}
 /* MODALS */
-.modal-bg{display:none;position:fixed;inset:0;z-index:5000;background:rgba(0,0,0,.65);align-items:center;justify-content:center;padding:20px;}
-.modal-bg.open{display:flex;}
-#reminderModal .modal-card{background:#1e1e2e;border-radius:24px;padding:32px;width:min(400px,100%);border:1.5px solid rgba(255,255,255,.1);}
-#reminderModal h3{color:#fff;font-size:1.2rem;font-weight:900;margin-bottom:4px;}
-#reminderModal p{color:rgba(255,255,255,.5);font-size:.85rem;margin-bottom:20px;}
-.reminder-grid{display:grid;grid-template-columns:1fr 1fr;gap:8px;margin-bottom:16px;}
-.rem-slot{background:rgba(255,255,255,.06);border:1.5px solid rgba(255,255,255,.1);border-radius:12px;padding:12px;text-align:center;cursor:pointer;transition:all .2s;}
-.rem-slot:hover,.rem-slot.active{border-color:#a855f7;background:rgba(168,85,247,.15);}
-.rem-slot .rst{font-size:1.1rem;font-weight:900;color:#fff;}
-.rem-slot .rsl{font-size:.72rem;color:rgba(255,255,255,.4);margin-top:2px;}
-#shareModal .modal-card{background:#fff;border-radius:24px;padding:32px;width:min(420px,100%);text-align:center;}
-#shareModal h3{font-size:1.3rem;font-weight:900;margin-bottom:4px;}
-#shareModal p{color:#6b7280;font-size:.85rem;margin-bottom:20px;}
-#shareCanvas{border-radius:16px;max-width:100%;}
+.mbg{display:none;position:fixed;inset:0;z-index:5000;background:rgba(0,0,0,.65);align-items:center;justify-content:center;padding:20px;}
+.mbg.open{display:flex;}
+.mcard{background:#1a1a2e;border-radius:22px;padding:28px;width:min(360px,100%);border:1.5px solid rgba(255,255,255,.1);}
+.mcard h3{color:#fff;font-size:1.1rem;font-weight:900;margin-bottom:16px;}
+.mrow{display:flex;flex-direction:column;gap:8px;}
+.mmbtn{padding:12px;border-radius:11px;border:1.5px solid;font-weight:700;cursor:pointer;font-family:inherit;font-size:.87rem;text-align:left;}
+/* NOTIFS */
+#nstack{position:fixed;top:16px;left:50%;transform:translateX(-50%);z-index:8000;display:flex;flex-direction:column;gap:7px;pointer-events:none;width:min(340px,90vw);}
+.ntst{background:#1e1e2e;color:#fff;border-radius:13px;padding:12px 15px;display:flex;align-items:center;gap:9px;box-shadow:0 6px 24px rgba(0,0,0,.3);border-left:4px solid #a855f7;animation:nslide .3s ease;pointer-events:all;}
+.ntst.ok{border-left-color:#00b894;}.ntst.warn{border-left-color:#f59e0b;}.ntst.err{border-left-color:#ef4444;}
+@keyframes nslide{from{opacity:0;transform:translateY(-16px)}to{opacity:1;transform:translateY(0)}}
+.ntitle{font-size:.83rem;font-weight:800;}.nmsg{font-size:.75rem;color:rgba(255,255,255,.55);margin-top:1px;}
+/* SHARE CARD */
+.scard{background:#fff;border-radius:22px;padding:28px;width:min(400px,100%);text-align:center;}
+.scard h3{font-size:1.2rem;font-weight:900;margin-bottom:4px;}
+.scard p{color:#6b7280;font-size:.83rem;margin-bottom:16px;}
+/* MOBILE FAB */
+#fab{display:none;position:fixed;bottom:0;left:0;right:0;z-index:300;background:rgba(255,255,255,.96);backdrop-filter:blur(12px);border-top:1.5px solid #e2e8f0;padding:6px 10px 10px;justify-content:space-around;}
+@media(max-width:640px){#fab{display:flex;}body{padding-bottom:68px;}}
+.fitem{display:flex;flex-direction:column;align-items:center;gap:2px;cursor:pointer;padding:5px 8px;border-radius:10px;}
+.fitem:hover{background:#f1f5f9;}.ficon{font-size:1.25rem;}.flbl{font-size:.6rem;font-weight:700;color:#6b7280;}
+/* COUNTDOWN HERO */
+#hcbar{background:rgba(251,191,36,.08);border:1px solid rgba(251,191,36,.18);border-radius:14px;padding:10px 18px;margin-top:14px;display:inline-flex;align-items:center;gap:14px;flex-wrap:wrap;justify-content:center;}
+.hcn{font-size:1.55rem;font-weight:900;color:#fbbf24;line-height:1;}
+.hcl{font-size:.62rem;color:rgba(255,255,255,.38);text-transform:uppercase;letter-spacing:1px;text-align:center;}
+.hcsep{font-size:1.2rem;color:rgba(251,191,36,.35);font-weight:900;padding-bottom:6px;}
 /* PRINT */
 @media print{
-  #loginOverlay,#userPill,#notifStack,.tabs-wrap,.hero,#reminderModal,#shareModal,#fabBar,button,select,input{display:none!important;}
+  #loginOverlay,#upill,#nstack,.tabs-wrap,.hero,#fab,.mbg{display:none!important;}
   .page{display:block!important;page-break-before:always;}
   .qbody{display:block!important;}
   body{background:#fff!important;color:#000!important;padding-bottom:0!important;}
-  .qcard{box-shadow:none!important;border:1px solid #ccc!important;margin-bottom:12px!important;break-inside:avoid;}
+  .qcard{box-shadow:none!important;border:1px solid #ccc!important;margin-bottom:10px!important;break-inside:avoid;}
   .ans-formula{background:#f5f5f5!important;color:#000!important;}
 }
-/* MODERN POLISH */
-.tabs-wrap{background:rgba(255,255,255,.96);backdrop-filter:blur(14px);-webkit-backdrop-filter:blur(14px);}
-.qcard{border-radius:20px;}
-/* MOBILE FAB */
-#fabBar{display:none;position:fixed;bottom:0;left:0;right:0;z-index:300;background:rgba(255,255,255,.96);backdrop-filter:blur(12px);border-top:1.5px solid #e2e8f0;padding:8px 16px 12px;justify-content:space-around;}
-@media(max-width:640px){#fabBar{display:flex;}body{padding-bottom:72px;}}
-.fab-item{display:flex;flex-direction:column;align-items:center;gap:2px;cursor:pointer;padding:6px 10px;border-radius:12px;transition:background .2s;}
-.fab-item:hover,.fab-item.active{background:#f1f5f9;}
-.fab-icon{font-size:1.3rem;}
-.fab-lbl{font-size:.62rem;font-weight:700;color:#6b7280;}
-/* EXAM COUNTDOWN HERO */
-#heroCountdownBar{background:rgba(251,191,36,.08);border:1px solid rgba(251,191,36,.2);border-radius:16px;padding:12px 20px;margin-top:16px;display:inline-flex;align-items:center;gap:16px;flex-wrap:wrap;justify-content:center;}
-.hcd-unit{text-align:center;}
-.hcd-num{font-size:1.6rem;font-weight:900;color:#fbbf24;line-height:1;}
-.hcd-lbl{font-size:.65rem;color:rgba(255,255,255,.4);text-transform:uppercase;letter-spacing:1px;}
-.hcd-sep{font-size:1.4rem;color:rgba(251,191,36,.4);font-weight:900;padding-bottom:8px;}
+/* EXTRA RESPONSIVE */
+@media(max-width:400px){.lcard{padding:28px 18px;}.ltab{font-size:.8rem;padding:8px;}}
 </style>
 </head>
 <body>
 
-<!-- ═══════════ LOGIN OVERLAY ═══════════ -->
+<!-- LOGIN -->
 <div id="loginOverlay">
-  <div class="login-card">
-    <div class="login-logo">📚</div>
-    <div class="login-title">BIEK 2026</div>
-    <div class="login-sub">Complete Study Guide — Login to save your progress</div>
-    <div class="login-tabs">
-      <button class="login-tab active" id="tabLogin" onclick="authTab('login')">Login</button>
-      <button class="login-tab" id="tabSignup" onclick="authTab('signup')">Sign Up</button>
-    </div>
-    <div class="login-err" id="authErr"></div>
-    <input class="login-input" id="authEmail" type="email" placeholder="Email address" autocomplete="email">
-    <input class="login-input" id="authPass" type="password" placeholder="Password" autocomplete="current-password">
-    <input class="login-input" id="authName" type="text" placeholder="Your name (e.g. Ahmed)" style="display:none" autocomplete="name">
-    <button class="login-btn" id="authBtn" onclick="doAuth()">🔓 Login</button>
-    <div class="login-divider">or</div>
-    <button class="login-btn" style="background:linear-gradient(135deg,#374151,#4b5563);box-shadow:none" onclick="guestLogin()">👤 Continue as Guest</button>
-    <div class="login-guest" onclick="authTab(currentTab==='login'?'signup':'login')">
-      <span id="guestText">Don't have an account?</span> <span id="authSwitch" style="color:#a855f7;font-weight:800">Sign Up</span>
-    </div>
+ <div class="lcard">
+  <div style="font-size:2.8rem;margin-bottom:6px">📚</div>
+  <div style="font-size:1.7rem;font-weight:900;color:#fff;margin-bottom:3px">BIEK 2026</div>
+  <div style="color:rgba(255,255,255,.45);font-size:.85rem;margin-bottom:26px">Complete Study Guide</div>
+  <div class="ltabs">
+   <button class="ltab active" id="tLogin" onclick="authSwitch('login')">Login</button>
+   <button class="ltab" id="tSignup" onclick="authSwitch('signup')">Sign Up</button>
   </div>
+  <div class="lerr" id="lerr"></div>
+  <input class="linp" id="lemail" type="email" placeholder="Email address" autocomplete="email">
+  <input class="linp" id="lpass" type="password" placeholder="Password (min 6 chars)" autocomplete="current-password">
+  <input class="linp" id="lname" type="text" placeholder="Your name" style="display:none" autocomplete="name">
+  <button class="lbtn" id="lmainbtn" onclick="doLogin()">🔓 Login</button>
+  <button class="lbtn2" onclick="guestGo()">👤 Continue as Guest</button>
+  <div class="lswitch" onclick="authSwitch(loginMode==='login'?'signup':'login')">
+   <span id="lswitchtxt">Don't have an account?</span> <b id="lswitchbtn">Sign Up</b>
+  </div>
+ </div>
 </div>
 
 <!-- USER PILL -->
-<div id="userPill" onclick="showUserMenu()">
-  <div class="user-avatar" id="avatarInitial">?</div>
-  <div class="user-name" id="pillName">Guest</div>
-  <span style="color:rgba(255,255,255,.3);font-size:.7rem;margin-left:2px">▼</span>
+<div id="upill" onclick="openMenu()">
+ <div class="uav" id="uav">?</div>
+ <div class="unm" id="unm">Guest</div>
+ <span style="color:rgba(255,255,255,.3);font-size:.7rem;margin-left:2px">▼</span>
 </div>
 
-<!-- NOTIFICATION STACK -->
-<div id="notifStack"></div>
+<!-- NOTIF STACK -->
+<div id="nstack"></div>
 
-<!-- REMINDER MODAL -->
-<div id="reminderModal" class="modal-bg">
-  <div class="modal-card">
-    <h3>🔔 Study Reminders</h3>
-    <p>Choose when you want to be reminded to study every day</p>
-    <div class="reminder-grid" id="remGrid">
-      <div class="rem-slot" onclick="setReminder('07:00','Morning')"><div class="rst">7:00 AM</div><div class="rsl">🌅 Morning</div></div>
-      <div class="rem-slot" onclick="setReminder('13:00','Afternoon')"><div class="rst">1:00 PM</div><div class="rsl">☀️ Afternoon</div></div>
-      <div class="rem-slot" onclick="setReminder('18:00','Evening')"><div class="rst">6:00 PM</div><div class="rsl">🌆 Evening</div></div>
-      <div class="rem-slot" onclick="setReminder('21:00','Night')"><div class="rst">9:00 PM</div><div class="rsl">🌙 Night</div></div>
-    </div>
-    <div style="margin-bottom:12px">
-      <div style="font-size:.82rem;font-weight:700;color:rgba(255,255,255,.5);margin-bottom:6px">Custom time:</div>
-      <input type="time" id="customReminderTime" style="background:rgba(255,255,255,.07);border:1.5px solid rgba(255,255,255,.12);border-radius:10px;padding:10px 14px;color:#fff;font-family:inherit;font-size:.9rem;width:100%">
-    </div>
-    <button onclick="setReminderCustom()" style="width:100%;background:linear-gradient(135deg,#7c3aed,#a855f7);border:none;border-radius:12px;padding:12px;color:#fff;font-weight:800;cursor:pointer;font-family:inherit;margin-bottom:8px">✅ Set Reminder</button>
-    <button onclick="document.getElementById('reminderModal').classList.remove('open')" style="width:100%;background:rgba(255,255,255,.07);border:1px solid rgba(255,255,255,.1);border-radius:12px;padding:12px;color:rgba(255,255,255,.5);font-weight:700;cursor:pointer;font-family:inherit">Cancel</button>
+<!-- USER MENU -->
+<div id="umenu" class="mbg">
+ <div class="mcard">
+  <div style="text-align:center;margin-bottom:18px">
+   <div id="mav" style="width:54px;height:54px;border-radius:50%;background:linear-gradient(135deg,#7c3aed,#a855f7);display:flex;align-items:center;justify-content:center;font-size:1.4rem;font-weight:900;color:#fff;margin:0 auto 8px">?</div>
+   <div id="mname" style="font-size:1rem;font-weight:900;color:#fff">Guest</div>
+   <div id="memail" style="font-size:.78rem;color:rgba(255,255,255,.38);margin-top:2px"></div>
   </div>
+  <div class="mrow">
+   <button class="mmbtn" style="border-color:rgba(168,85,247,.3);background:rgba(168,85,247,.1);color:#c4b5fd" onclick="closeMenu();window.print();document.querySelectorAll('.qcard').forEach(c=>c.classList.add('open'))">🖨️ Print / Save as PDF</button>
+   <button class="mmbtn" style="border-color:rgba(0,184,148,.3);background:rgba(0,184,148,.1);color:#6ee7b7" onclick="closeMenu();openShare()">📤 Share My Progress</button>
+   <button class="mmbtn" style="border-color:rgba(251,191,36,.3);background:rgba(251,191,36,.08);color:#fbbf24" onclick="closeMenu();setupReminder()">🔔 Study Reminder</button>
+   <button class="mmbtn" style="border-color:rgba(239,68,68,.25);background:rgba(239,68,68,.08);color:#fca5a5" onclick="doLogout()">🚪 Logout</button>
+  </div>
+  <button onclick="closeMenu()" style="width:100%;margin-top:10px;background:rgba(255,255,255,.05);border:1px solid rgba(255,255,255,.08);border-radius:10px;padding:9px;color:rgba(255,255,255,.35);font-weight:700;cursor:pointer;font-family:inherit">Close</button>
+ </div>
 </div>
 
 <!-- SHARE MODAL -->
-<div id="shareModal" class="modal-bg">
-  <div class="modal-card">
-    <h3>📤 Share My Progress</h3>
-    <p>Show your friends how hard you're studying!</p>
-    <canvas id="shareCanvas" width="360" height="200"></canvas>
-    <div style="display:flex;gap:10px;margin-top:16px">
-      <button onclick="downloadShareCard()" style="flex:1;padding:12px;border-radius:12px;border:none;background:linear-gradient(135deg,#7c3aed,#a855f7);color:#fff;font-weight:800;cursor:pointer;font-family:inherit">⬇️ Download</button>
-      <button onclick="copyShareLink()" style="flex:1;padding:12px;border-radius:12px;border:2px solid #e2e8f0;background:#fff;color:#374151;font-weight:800;cursor:pointer;font-family:inherit">🔗 Copy Link</button>
-      <button onclick="document.getElementById('shareModal').classList.remove('open')" style="padding:12px 16px;border-radius:12px;border:2px solid #e2e8f0;background:#fff;color:#374151;font-weight:700;cursor:pointer;font-family:inherit">✕</button>
-    </div>
+<div id="smodal" class="mbg">
+ <div class="scard">
+  <h3>📤 Share My Progress</h3>
+  <p>Dosto ko dikhao kitni mehnat kar rahe ho!</p>
+  <canvas id="scanvas" width="360" height="190" style="border-radius:14px;max-width:100%"></canvas>
+  <div style="display:flex;gap:9px;margin-top:14px">
+   <button onclick="dlShare()" style="flex:1;padding:11px;border-radius:11px;border:none;background:linear-gradient(135deg,#7c3aed,#a855f7);color:#fff;font-weight:800;cursor:pointer;font-family:inherit">⬇️ Download</button>
+   <button onclick="cpShare()" style="flex:1;padding:11px;border-radius:11px;border:2px solid #e2e8f0;background:#fff;color:#374151;font-weight:800;cursor:pointer;font-family:inherit">🔗 Copy</button>
+   <button onclick="document.getElementById('smodal').classList.remove('open')" style="padding:11px 14px;border-radius:11px;border:2px solid #e2e8f0;background:#fff;color:#374151;font-weight:700;cursor:pointer;font-family:inherit">✕</button>
   </div>
+ </div>
 </div>
 
-<!-- USER MENU MODAL -->
-<div id="userMenuModal" class="modal-bg">
-  <div class="modal-card" style="background:#1e1e2e;border-radius:24px;padding:28px;width:min(320px,100%);border:1.5px solid rgba(255,255,255,.1)">
-    <div style="text-align:center;margin-bottom:20px">
-      <div id="menuAvatar" style="width:60px;height:60px;border-radius:50%;background:linear-gradient(135deg,#7c3aed,#a855f7);display:flex;align-items:center;justify-content:center;font-size:1.5rem;font-weight:900;color:#fff;margin:0 auto 10px">?</div>
-      <div id="menuName" style="font-size:1.1rem;font-weight:900;color:#fff">Guest</div>
-      <div id="menuEmail" style="font-size:.82rem;color:rgba(255,255,255,.4);margin-top:2px"></div>
-    </div>
-    <div style="display:flex;flex-direction:column;gap:8px">
-      <button onclick="openReminders()" style="background:rgba(168,85,247,.15);border:1.5px solid rgba(168,85,247,.3);border-radius:12px;padding:12px;color:#c4b5fd;font-weight:700;cursor:pointer;font-family:inherit;font-size:.88rem">🔔 Study Reminders</button>
-      <button onclick="openShareModal()" style="background:rgba(0,184,148,.15);border:1.5px solid rgba(0,184,148,.3);border-radius:12px;padding:12px;color:#6ee7b7;font-weight:700;cursor:pointer;font-family:inherit;font-size:.88rem">📤 Share My Progress</button>
-      <button onclick="printGuide()" style="background:rgba(14,165,233,.15);border:1.5px solid rgba(14,165,233,.3);border-radius:12px;padding:12px;color:#7dd3fc;font-weight:700;cursor:pointer;font-family:inherit;font-size:.88rem">🖨️ Print / Save as PDF</button>
-      <button onclick="doLogout()" style="background:rgba(239,68,68,.12);border:1.5px solid rgba(239,68,68,.25);border-radius:12px;padding:12px;color:#fca5a5;font-weight:700;cursor:pointer;font-family:inherit;font-size:.88rem">🚪 Logout</button>
-    </div>
-    <button onclick="document.getElementById('userMenuModal').classList.remove('open')" style="width:100%;margin-top:12px;background:rgba(255,255,255,.05);border:1px solid rgba(255,255,255,.08);border-radius:12px;padding:10px;color:rgba(255,255,255,.4);font-weight:700;cursor:pointer;font-family:inherit">Close</button>
-  </div>
-</div>
-
-<!-- MOBILE FAB BAR -->
-<div id="fabBar">
-  <div class="fab-item" onclick="showPage('home')"><div class="fab-icon">🏠</div><div class="fab-lbl">Home</div></div>
-  <div class="fab-item" onclick="showPage('cs')"><div class="fab-icon">💻</div><div class="fab-lbl">CS</div></div>
-  <div class="fab-item" onclick="openSearch()"><div class="fab-icon">🔍</div><div class="fab-lbl">Search</div></div>
-  <div class="fab-item" onclick="showPage('ai')"><div class="fab-icon">🤖</div><div class="fab-lbl">AI</div></div>
-  <div class="fab-item" onclick="showUserMenu()"><div class="fab-icon">👤</div><div class="fab-lbl">Profile</div></div>
+<!-- MOBILE FAB -->
+<div id="fab">
+ <div class="fitem" onclick="showPage('home')"><div class="ficon">🏠</div><div class="flbl">Home</div></div>
+ <div class="fitem" onclick="showPage('cs')"><div class="ficon">💻</div><div class="flbl">CS</div></div>
+ <div class="fitem" onclick="openSearch()"><div class="ficon">🔍</div><div class="flbl">Search</div></div>
+ <div class="fitem" onclick="showPage('ai')"><div class="ficon">🤖</div><div class="flbl">AI</div></div>
+ <div class="fitem" onclick="openMenu()"><div class="ficon">👤</div><div class="flbl">Me</div></div>
 </div>
 
 
@@ -567,25 +528,23 @@ body.dark .cheat-section{background:#1a1a2e!important;}
   <div class="hero-badge">🎓 DJ Science College · Karachi · BIEK 2026</div>
   <h1>Board Exam 2026<br><span>Complete Study Guide</span></h1>
   <p>All 6 Subjects · Full Answers · Memory Tips · 52-Day Plan</p>
+  <div id="hcbar">
+   <span style="font-size:.72rem;font-weight:800;color:rgba(251,191,36,.65);letter-spacing:1.5px">⏳ EXAM IN</span>
+   <div><div class="hcn" id="hcd">--</div><div class="hcl">days</div></div>
+   <div class="hcsep">:</div>
+   <div><div class="hcn" id="hch">--</div><div class="hcl">hrs</div></div>
+   <div class="hcsep">:</div>
+   <div><div class="hcn" id="hcm">--</div><div class="hcl">min</div></div>
+   <div class="hcsep">:</div>
+   <div><div class="hcn" id="hcs">--</div><div class="hcl">sec</div></div>
+   <span style="font-size:.7rem;color:rgba(255,255,255,.25)">· May 1, 2026</span>
+  </div>
   <div class="hero-stats">
     <div class="hstat"><div class="num">6</div><div class="lbl">Subjects</div></div>
-    <div class="hstat"><div class="num">10 yrs</div><div class="lbl">Past Papers</div></div>
-    <div class="hstat"><div class="num">3 hrs</div><div class="lbl">Per Day</div></div>
-  </div>
-  <!-- LIVE EXAM COUNTDOWN -->
-  <div id="heroCountdownBar">
-    <div style="font-size:.75rem;font-weight:800;color:rgba(251,191,36,.7);text-transform:uppercase;letter-spacing:1.5px;margin-right:4px">⏳ Exam in</div>
-    <div class="hcd-unit"><div class="hcd-num" id="hcd-d">--</div><div class="hcd-lbl">days</div></div>
-    <div class="hcd-sep">:</div>
-    <div class="hcd-unit"><div class="hcd-num" id="hcd-h">--</div><div class="hcd-lbl">hrs</div></div>
-    <div class="hcd-sep">:</div>
-    <div class="hcd-unit"><div class="hcd-num" id="hcd-m">--</div><div class="hcd-lbl">min</div></div>
-    <div class="hcd-sep">:</div>
-    <div class="hcd-unit"><div class="hcd-num" id="hcd-s">--</div><div class="hcd-lbl">sec</div></div>
-    <div style="font-size:.75rem;color:rgba(255,255,255,.3);margin-left:4px">· May 1, 2026</div>
-  </div>
-  <div class="hero-stats" style="margin-top:12px">
     <div class="hstat"><div class="num">52</div><div class="lbl">Days to Go</div></div>
+    <div class="hstat"><div class="num">3 hrs</div><div class="lbl">Per Day</div></div>
+    <div class="hstat"><div class="num">May 1</div><div class="lbl">Exam Start</div></div>
+    <div class="hstat"><div class="num">10 yrs</div><div class="lbl">Past Papers</div></div>
     <div style="margin-top:20px">
     <button onclick="toggleDark()" id="darkBtn" style="background:rgba(255,255,255,.12);border:1.5px solid rgba(255,255,255,.3);color:#fff;border-radius:50px;padding:8px 22px;font-size:.85rem;font-weight:700;cursor:pointer;font-family:inherit">🌙 Dark Mode</button>
     <button onclick="openSearch()" style="background:rgba(251,191,36,.15);border:1.5px solid rgba(251,191,36,.4);color:#fbbf24;border-radius:50px;padding:8px 22px;font-size:.85rem;font-weight:700;cursor:pointer;font-family:inherit;margin-left:10px">🔍 Search Topics</button>
@@ -3847,7 +3806,7 @@ let deferredPrompt = null;
 let xp = 0, xpLevel = 0;
 let mockTimer = null, mockRunning = false, mockSeconds = 3*3600;
 let ttSlots = [];
-let leaderboard = JSON.parse(localStorage.getItem('biek_lb') || '[]');
+let leaderboard = []; try{ leaderboard=JSON.parse(localStorage.getItem('biek_lb')||'[]'); }catch(e){}
 const subjectColors = {cs:'#00b894',phy:'#e17055',mat:'#0984e3',eng:'#a855f7',isl:'#00cec9',urd:'#f59e0b'};
 setInterval(() => { sessionTime = Math.floor((Date.now() - sessionStart) / 60000); }, 10000);
 
@@ -3962,16 +3921,23 @@ document.head.appendChild(darkStyle);
 // ══════════════════════════════════════════════════════════
 function updateCountdown() {
   const diff = new Date('2026-05-01T09:00:00') - new Date();
-  if(diff <= 0) return;
   const pad = n => String(n).padStart(2,'0');
-  const d = document.getElementById('cd-days');
-  if(!d) return;
-  d.textContent = pad(Math.floor(diff/86400000));
-  document.getElementById('cd-hours').textContent = pad(Math.floor((diff%86400000)/3600000));
-  document.getElementById('cd-mins').textContent  = pad(Math.floor((diff%3600000)/60000));
-  document.getElementById('cd-secs').textContent  = pad(Math.floor((diff%60000)/1000));
+  if(diff <= 0) return;
+  // Old countdown elements
+  const d=document.getElementById('cd-days');
+  if(d){ d.textContent=pad(Math.floor(diff/86400000));
+    document.getElementById('cd-hours').textContent=pad(Math.floor((diff%86400000)/3600000));
+    document.getElementById('cd-mins').textContent=pad(Math.floor((diff%3600000)/60000));
+    document.getElementById('cd-secs').textContent=pad(Math.floor((diff%60000)/1000)); }
+  // New hero countdown
+  const hd=document.getElementById('hcd');
+  if(hd){ hd.textContent=pad(Math.floor(diff/86400000));
+    document.getElementById('hch').textContent=pad(Math.floor((diff%86400000)/3600000));
+    document.getElementById('hcm').textContent=pad(Math.floor((diff%3600000)/60000));
+    document.getElementById('hcs').textContent=pad(Math.floor((diff%60000)/1000)); }
 }
-// countdown now handled by updateHeroCountdown above
+setInterval(updateCountdown, 1000);
+updateCountdown();
 
 // ══════════════════════════════════════════════════════════
 // POMODORO
@@ -4479,71 +4445,7 @@ function printCheatsheet() {
     h3{margin:0 0 8px;font-size:12px}
     .cheat-section{margin-bottom:16px;padding:12px;border:2px solid #ccc;border-radius:8px;page-break-inside:avoid}
     @media print{@page{size:A4;margin:15mm}}
-  </style></head><body>${content}
-<script>
-// Run after ALL scripts loaded — check login
-(function initAuth() {
-  // Hide main content until auth checked
-  const overlay = document.getElementById('loginOverlay');
-  if(!overlay) return;
-  
-  // Check saved user
-  try {
-    const stored = localStorage.getItem('biek_current_user');
-    if(stored) {
-      const user = JSON.parse(stored);
-      if(user && user.id) {
-        // Already logged in — hide overlay
-        overlay.style.display = 'none';
-        // Show user pill
-        const pill = document.getElementById('userPill');
-        if(pill) pill.style.display = 'flex';
-        const pn = document.getElementById('pillName');
-        if(pn) pn.textContent = user.name;
-        const av = document.getElementById('avatarInitial');
-        if(av) av.textContent = user.name.charAt(0).toUpperCase();
-        const mn = document.getElementById('menuName');
-        if(mn) mn.textContent = user.name;
-        const me = document.getElementById('menuEmail');
-        if(me) me.textContent = user.email || (user.isGuest ? 'Guest mode' : '');
-        const ma = document.getElementById('menuAvatar');
-        if(ma) ma.textContent = user.name.charAt(0).toUpperCase();
-        window.currentUser = user;
-        return;
-      }
-    }
-  } catch(e) {}
-  // No saved user — show login
-  overlay.style.display = 'flex';
-})();
-
-// Fix authTab toggle
-window.authTab = function(tab) {
-  window.currentTab = tab;
-  var tl = document.getElementById('tabLogin');
-  var ts = document.getElementById('tabSignup');
-  if(tl) tl.classList.toggle('active', tab==='login');
-  if(ts) ts.classList.toggle('active', tab==='signup');
-  var nameField = document.getElementById('authName');
-  var btn = document.getElementById('authBtn');
-  var switchEl = document.getElementById('authSwitch');
-  var guestText = document.getElementById('guestText');
-  if(tab === 'signup') {
-    if(nameField) nameField.style.display = 'block';
-    if(btn) btn.textContent = '✨ Create Account';
-    if(switchEl) switchEl.textContent = 'Login instead';
-    if(guestText) guestText.textContent = 'Already have an account?';
-  } else {
-    if(nameField) nameField.style.display = 'none';
-    if(btn) btn.textContent = '🔓 Login';
-    if(switchEl) switchEl.textContent = 'Sign Up';
-    if(guestText) guestText.textContent = "Don't have an account?";
-  }
-  var err = document.getElementById('authErr');
-  if(err) err.style.display = 'none';
-};
-</script>
-</body></html>`);
+  </style></head><body>${content}</body></html>`);
   w.document.close();
   setTimeout(()=>w.print(),400);
 }
@@ -4881,97 +4783,36 @@ function applyState(state) {
   }
 }
 
-// ══════════════════════════════════════════════════════════
-// SUPABASE DATABASE — Real cloud storage, any device!
-// Progress saves to actual PostgreSQL database (FREE)
-// ══════════════════════════════════════════════════════════
+// ── SUPABASE CLOUD SAVE ──
+const SB_URL = 'https://kmkkgedjsetbvznbuaxw.supabase.co';
+const SB_KEY = 'sb_publishable_j2sPbESMkXbgWei782-Y2w_WdjPcKjd';
 
-// ⚠️ APNI SUPABASE VALUES YAHAN DALO (setup guide dekho)
-const SUPABASE_URL = window.SUPABASE_URL || 'YOUR_SUPABASE_URL';
-const SUPABASE_ANON_KEY = window.SUPABASE_ANON_KEY || 'YOUR_SUPABASE_ANON_KEY';
-
-// Get or create a unique user ID (stored in localStorage just as identifier)
-function getUserId() {
-  let uid = localStorage.getItem('biek2026_uid');
-  if (!uid) {
-    uid = 'user_' + Math.random().toString(36).substr(2, 9) + '_' + Date.now();
-    localStorage.setItem('biek2026_uid', uid);
-  }
-  return uid;
+function getUID() {
+  let u = localStorage.getItem('biek_uid');
+  if(!u){ u='u_'+Math.random().toString(36).substr(2,9)+'_'+Date.now(); localStorage.setItem('biek_uid',u); }
+  return u;
 }
 
-// ── SAVE to Supabase Database ──
 async function saveToLocalStorage() {
   const state = collectState();
-  const userId = getUserId();
-
-  // Always keep localStorage as instant backup
-  try { localStorage.setItem('biek2026_state', JSON.stringify(state)); } catch(e) {}
-
-  // Save to Supabase (real database)
-  if (SUPABASE_URL === 'YOUR_SUPABASE_URL') return; // not configured yet
-
+  try { localStorage.setItem('biek2026_state', JSON.stringify(state)); } catch(e){}
   try {
-    const res = await fetch(`${SUPABASE_URL}/rest/v1/progress`, {
-      method: 'POST',
-      headers: {
-        'apikey': SUPABASE_ANON_KEY,
-        'Authorization': `Bearer ${SUPABASE_ANON_KEY}`,
-        'Content-Type': 'application/json',
-        'Prefer': 'resolution=merge-duplicates'
-      },
-      body: JSON.stringify({
-        user_id: userId,
-        state_data: state,
-        updated_at: new Date().toISOString()
-      })
+    await fetch(SB_URL+'/rest/v1/progress', {
+      method:'POST',
+      headers:{'apikey':SB_KEY,'Authorization':'Bearer '+SB_KEY,'Content-Type':'application/json','Prefer':'resolution=merge-duplicates'},
+      body: JSON.stringify({user_id: getUID(), state_data: state, updated_at: new Date().toISOString()})
     });
-    if (res.ok) {
-      console.log('☁️ Progress saved to database!');
-    }
-  } catch(e) {
-    console.log('Database save failed, using local backup:', e.message);
-  }
+  } catch(e){}
 }
 
-// ── LOAD from Supabase Database ──
 async function loadFromLocalStorage() {
-  const userId = getUserId();
-
-  // Try Supabase first
-  if (SUPABASE_URL !== 'YOUR_SUPABASE_URL') {
-    try {
-      const res = await fetch(
-        `${SUPABASE_URL}/rest/v1/progress?user_id=eq.${userId}&select=state_data`,
-        {
-          headers: {
-            'apikey': SUPABASE_ANON_KEY,
-            'Authorization': `Bearer ${SUPABASE_ANON_KEY}`
-          }
-        }
-      );
-      if (res.ok) {
-        const rows = await res.json();
-        if (rows && rows.length > 0 && rows[0].state_data) {
-          applyState(rows[0].state_data);
-          console.log('☁️ Progress loaded from database!');
-          showToast('☁️ Progress restored from cloud!');
-          return;
-        }
-      }
-    } catch(e) {
-      console.log('Database load failed, trying local:', e.message);
-    }
-  }
-
-  // Fallback: localStorage
   try {
-    const raw = localStorage.getItem('biek2026_state');
-    if (raw) {
-      applyState(JSON.parse(raw));
-      console.log('💾 Progress loaded from local storage');
-    }
-  } catch(e) { console.log('localStorage load skipped:', e.message); }
+    const r = await fetch(SB_URL+'/rest/v1/progress?user_id=eq.'+getUID()+'&select=state_data',
+      {headers:{'apikey':SB_KEY,'Authorization':'Bearer '+SB_KEY}});
+    const d = await r.json();
+    if(d && d[0] && d[0].state_data){ applyState(d[0].state_data); pushN('ok','☁️ Progress loaded!',''); return; }
+  } catch(e){}
+  try { const r=localStorage.getItem('biek2026_state'); if(r) applyState(JSON.parse(r)); } catch(e){}
 }
 
 // ── CROSS-DEVICE: Bake progress into HTML file and download ──
@@ -5011,9 +4852,8 @@ function loadBakedState() {
   return false;
 }
 
-// Auto-save to DATABASE every 30s + on tab close
-setInterval(() => saveToLocalStorage(), 30000);
-window.addEventListener('beforeunload', () => saveToLocalStorage());
+setInterval(()=>saveToLocalStorage(), 30000);
+window.addEventListener('beforeunload',()=>saveToLocalStorage());
 
 window.addEventListener('beforeinstallprompt', e => {
   e.preventDefault(); deferredPrompt = e;
@@ -5835,7 +5675,7 @@ function closeSplit() { document.getElementById('splitOverlay').style.display='n
 // ══════════════════════════════════════════════════════════
 window.addEventListener('load', async () => {
   const hasBaked = loadBakedState();
-  if(!hasBaked) await loadFromLocalStorage(); // Supabase DB or localStorage fallback
+  if(!hasBaked) await loadFromLocalStorage();
   addBookmarkButtons();
   loadFlashcards();
   updateGoal();
@@ -5856,379 +5696,179 @@ window.addEventListener('load', async () => {
 
 
 // ══════════════════════════════════════════════════════════
-// ▶▶ NEW FEATURES JAVASCRIPT
+// NEW FEATURES JS
 // ══════════════════════════════════════════════════════════
 
-// ── AUTH STATE ──
-let currentUser = null;
-let currentTab = 'login';
-
-function authTab(tab) {
-  currentTab = tab;
-  // Toggle active class on buttons
-  document.querySelectorAll('.login-tab').forEach(t => t.classList.remove('active'));
-  if(tab === 'login') document.getElementById('tabLogin').classList.add('active');
-  else document.getElementById('tabSignup').classList.add('active');
-
-  const nameField = document.getElementById('authName');
-  const btn = document.getElementById('authBtn');
-  const switchEl = document.getElementById('authSwitch');
-  const guestText = document.getElementById('guestText');
-
-  if(tab === 'signup') {
-    nameField.style.display = 'block';
-    btn.textContent = '✨ Create Account';
-    if(switchEl) switchEl.textContent = 'Login instead';
-    if(guestText) guestText.textContent = 'Already have an account?';
-  } else {
-    nameField.style.display = 'none';
-    btn.textContent = '🔓 Login';
-    if(switchEl) switchEl.textContent = "Sign Up";
-    if(guestText) guestText.textContent = "Don't have an account?";
-  }
-  document.getElementById('authErr').style.display = 'none';
+// ── NOTIFICATIONS ──
+function pushN(type, title, msg) {
+  const id='n'+Date.now();
+  const s=document.getElementById('nstack');
+  if(!s) return;
+  const el=document.createElement('div');
+  el.className='ntst '+type; el.id=id;
+  el.innerHTML='<div style="flex:1"><div class="ntitle">'+title+'</div>'+(msg?'<div class="nmsg">'+msg+'</div>':'')+'</div><div style="cursor:pointer;opacity:.4;margin-left:8px" onclick="document.getElementById(\''+id+'\').remove()">✕</div>';
+  s.appendChild(el);
+  setTimeout(()=>{const e=document.getElementById(id);if(e)e.remove();},4000);
 }
 
-async function doAuth() {
-  const email = document.getElementById('authEmail').value.trim();
-  const pass  = document.getElementById('authPass').value;
-  const name  = document.getElementById('authName').value.trim();
-  const errEl = document.getElementById('authErr');
-
-  if(!email || !pass) { showAuthErr('Email aur password dono daalo!'); return; }
-  if(pass.length < 6)  { showAuthErr('Password kam az kam 6 characters ka hona chahiye'); return; }
-
-  const btn = document.getElementById('authBtn');
-  btn.textContent = '⏳ Please wait...';
-  btn.disabled = true;
-  errEl.style.display = 'none';
-
-  // Use Supabase Auth if configured, else simple local auth
-  if(window.SUPABASE_URL && window.SUPABASE_URL !== 'YOUR_SUPABASE_URL') {
-    try {
-      const endpoint = currentTab === 'signup'
-        ? `${window.SUPABASE_URL}/auth/v1/signup`
-        : `${window.SUPABASE_URL}/auth/v1/token?grant_type=password`;
-      const body = currentTab === 'signup'
-        ? { email, password: pass, data: { display_name: name||email.split('@')[0] } }
-        : { email, password: pass };
-      const res = await fetch(endpoint, {
-        method:'POST',
-        headers:{'Content-Type':'application/json','apikey':window.SUPABASE_ANON_KEY},
-        body: JSON.stringify(body)
-      });
-      const data = await res.json();
-      if(data.error || data.msg) {
-        showAuthErr(data.error_description || data.msg || 'Koi error aayi, dobara try karo');
-        btn.textContent = currentTab==='signup'?'✨ Create Account':'🔓 Login';
-        btn.disabled = false;
-        return;
-      }
-      // Success
-      const uname = data.user?.user_metadata?.display_name || name || email.split('@')[0];
-      loginSuccess({ id: data.user?.id || email, name: uname, email, token: data.access_token });
-    } catch(e) {
-      // Fallback to local auth
-      localAuth(email, pass, name);
-    }
-  } else {
-    // No Supabase — use simple local auth (progress still saves locally)
-    localAuth(email, pass, name);
-  }
-  btn.textContent = currentTab==='signup'?'✨ Create Account':'🔓 Login';
-  btn.disabled = false;
-}
-
-function localAuth(email, pass, name) {
-  // Simple local account — no real server needed
-  const key = 'biek_user_' + btoa(email);
-  if(currentTab === 'signup') {
-    if(localStorage.getItem(key)) { showAuthErr('Yeh email pehle se registered hai! Login karo.'); return; }
-    const user = { id: btoa(email), email, name: name||email.split('@')[0], passHash: btoa(pass) };
-    localStorage.setItem(key, JSON.stringify(user));
-    loginSuccess(user);
-  } else {
-    const stored = localStorage.getItem(key);
-    if(!stored) { showAuthErr('Email nahi mili. Pehle Sign Up karo!'); return; }
-    const user = JSON.parse(stored);
-    if(user.passHash !== btoa(pass)) { showAuthErr('Password galat hai!'); return; }
-    loginSuccess(user);
-  }
-}
-
-function guestLogin() {
-  const uid = localStorage.getItem('biek2026_uid') || ('guest_' + Math.random().toString(36).substr(2,6));
-  localStorage.setItem('biek2026_uid','guest_'+uid.replace('guest_',''));
-  loginSuccess({ id: uid, name: 'Guest Student', email: '', isGuest: true });
-}
-
-function loginSuccess(user) {
-  currentUser = user;
-  localStorage.setItem('biek_current_user', JSON.stringify(user));
-  document.getElementById('loginOverlay').style.display = 'none';
-  // Show user pill
-  const pill = document.getElementById('userPill');
-  pill.style.display = 'flex';
-  document.getElementById('pillName').textContent = user.name;
-  document.getElementById('avatarInitial').textContent = user.name.charAt(0).toUpperCase();
-  document.getElementById('menuAvatar').textContent = user.name.charAt(0).toUpperCase();
-  document.getElementById('menuName').textContent = user.name;
-  document.getElementById('menuEmail').textContent = user.email || (user.isGuest ? 'Guest mode — progress saves locally' : '');
-  pushNotif('success','👋 Welcome back, '+user.name+'!','Progress loading from database...','✅');
-  // Load their saved progress
-  setTimeout(() => loadFromLocalStorage(), 800);
-}
-
-function showAuthErr(msg) {
-  const el = document.getElementById('authErr');
-  el.textContent = msg;
-  el.style.display = 'block';
-  const btn = document.getElementById('authBtn');
-  btn.textContent = currentTab==='signup'?'✨ Create Account':'🔓 Login';
-  btn.disabled = false;
-}
-
-function showUserMenu() {
-  document.getElementById('userMenuModal').classList.add('open');
-}
-
-function doLogout() {
-  currentUser = null;
-  localStorage.removeItem('biek_current_user');
-  document.getElementById('userMenuModal').classList.remove('open');
-  document.getElementById('userPill').style.display = 'none';
-  document.getElementById('loginOverlay').style.display = 'flex';
-  document.getElementById('authErr').style.display = 'none';
-}
-
-// ── IMPROVED NOTIFICATION SYSTEM ──
-function pushNotif(type, title, msg, icon='🔔') {
-  const stack = document.getElementById('notifStack');
-  const id = 'n' + Date.now();
-  const el = document.createElement('div');
-  el.className = 'notif-toast ' + type;
-  el.id = id;
-  el.innerHTML = `<div class="notif-icon">${icon}</div><div class="notif-body"><div class="notif-title">${title}</div><div class="notif-msg">${msg}</div></div><div class="notif-close" onclick="document.getElementById('${id}').remove()">✕</div>`;
-  stack.appendChild(el);
-  setTimeout(() => { if(document.getElementById(id)) document.getElementById(id).remove(); }, 4500);
-}
-
-// Override old showToast to use new notif system
+// Override showToast
+const _origToast = typeof showToast==='function' ? showToast : null;
 function showToast(msg) {
-  const icon = msg.includes('✅')||msg.includes('☁️')||msg.includes('💾') ? '✅' :
-               msg.includes('❌') ? '❌' : msg.includes('⚠️') ? '⚠️' : msg.includes('🔥') ? '🔥' :
-               msg.includes('🏆') ? '🏆' : msg.includes('🎉') ? '🎉' : '📢';
-  const type = msg.includes('❌') ? 'error' : msg.includes('⚠️') ? 'warning' : 'success';
-  pushNotif(type, msg.substring(0,60), '', icon);
+  const t = msg.includes('❌')?'err':msg.includes('⚠️')?'warn':'ok';
+  pushN(t, msg.substring(0,55), '');
 }
 
-// ── STUDY REMINDERS ──
-let reminderTimers = [];
-function openReminders() {
-  document.getElementById('userMenuModal').classList.remove('open');
-  document.getElementById('reminderModal').classList.add('open');
-  // Show active reminders
-  const saved = JSON.parse(localStorage.getItem('biek_reminders')||'[]');
-  document.querySelectorAll('.rem-slot').forEach(s => {
-    const t = s.querySelector('.rst').textContent.replace(' AM','').replace(' PM','');
-    s.classList.toggle('active', saved.some(r=>r.label===s.querySelector('.rsl').textContent.trim()));
+// ── AUTH ──
+let loginMode = 'login';
+let currentUser = null;
+
+function authSwitch(mode) {
+  loginMode = mode;
+  document.getElementById('tLogin').classList.toggle('active', mode==='login');
+  document.getElementById('tSignup').classList.toggle('active', mode==='signup');
+  document.getElementById('lname').style.display = mode==='signup' ? 'block' : 'none';
+  document.getElementById('lmainbtn').textContent = mode==='signup' ? '✨ Create Account' : '🔓 Login';
+  document.getElementById('lswitchtxt').textContent = mode==='signup' ? 'Already have an account?' : "Don't have an account?";
+  document.getElementById('lswitchbtn').textContent = mode==='signup' ? 'Login' : 'Sign Up';
+  document.getElementById('lerr').style.display = 'none';
+}
+
+async function doLogin() {
+  const email = document.getElementById('lemail').value.trim();
+  const pass  = document.getElementById('lpass').value;
+  const name  = document.getElementById('lname').value.trim();
+  if(!email||!pass){ showErr('Email aur password daalo!'); return; }
+  if(pass.length<6){ showErr('Password 6+ characters ka hona chahiye'); return; }
+  const btn = document.getElementById('lmainbtn');
+  btn.textContent='⏳ Please wait...'; btn.disabled=true;
+  document.getElementById('lerr').style.display='none';
+
+  // Try Supabase auth
+  try {
+    const ep = loginMode==='signup'
+      ? SB_URL+'/auth/v1/signup'
+      : SB_URL+'/auth/v1/token?grant_type=password';
+    const body = loginMode==='signup'
+      ? {email, password:pass, data:{display_name:name||email.split('@')[0]}}
+      : {email, password:pass};
+    const res = await fetch(ep,{method:'POST',headers:{'Content-Type':'application/json','apikey':SB_KEY},body:JSON.stringify(body)});
+    const data = await res.json();
+    if(data.error_description||data.error||data.msg){
+      showErr(data.error_description||data.msg||'Error aaya, dobara try karo');
+      btn.textContent=loginMode==='signup'?'✨ Create Account':'🔓 Login'; btn.disabled=false; return;
+    }
+    const uname = data.user?.user_metadata?.display_name || name || email.split('@')[0];
+    afterLogin({id:data.user?.id||email, name:uname, email, token:data.access_token});
+  } catch(e) {
+    // Fallback: local auth
+    localLogin(email, pass, name);
+  }
+  btn.textContent=loginMode==='signup'?'✨ Create Account':'🔓 Login'; btn.disabled=false;
+}
+
+function localLogin(email, pass, name) {
+  const k='biek_u_'+btoa(email).replace(/=/g,'');
+  if(loginMode==='signup'){
+    if(localStorage.getItem(k)){ showErr('Email already registered! Login karo.'); return; }
+    const u={id:btoa(email).replace(/=/g,''),email,name:name||email.split('@')[0],ph:btoa(pass)};
+    localStorage.setItem(k,JSON.stringify(u));
+    afterLogin(u);
+  } else {
+    const raw=localStorage.getItem(k);
+    if(!raw){ showErr('Email nahi mili. Pehle Sign Up karo!'); return; }
+    const u=JSON.parse(raw);
+    if(u.ph!==btoa(pass)){ showErr('Password galat hai!'); return; }
+    afterLogin(u);
+  }
+}
+
+function showErr(msg){ const e=document.getElementById('lerr'); e.textContent=msg; e.style.display='block'; }
+
+function guestGo(){
+  afterLogin({id:'guest_'+Date.now(),name:'Guest Student',email:'',isGuest:true});
+}
+
+function afterLogin(user){
+  currentUser=user;
+  localStorage.setItem('biek_cu',JSON.stringify(user));
+  document.getElementById('loginOverlay').style.display='none';
+  const pill=document.getElementById('upill'); if(pill) pill.style.display='flex';
+  ['unm','mname'].forEach(id=>{const e=document.getElementById(id);if(e)e.textContent=user.name;});
+  ['uav','mav'].forEach(id=>{const e=document.getElementById(id);if(e)e.textContent=user.name.charAt(0).toUpperCase();});
+  const me=document.getElementById('memail');
+  if(me) me.textContent=user.email||(user.isGuest?'Guest mode — local save':'');
+  pushN('ok','👋 Welcome, '+user.name+'!','');
+  setTimeout(()=>loadFromLocalStorage(),500);
+}
+
+function openMenu(){ document.getElementById('umenu').classList.add('open'); }
+function closeMenu(){ document.getElementById('umenu').classList.remove('open'); }
+
+function doLogout(){
+  currentUser=null;
+  localStorage.removeItem('biek_cu');
+  closeMenu();
+  document.getElementById('upill').style.display='none';
+  document.getElementById('loginOverlay').style.display='flex';
+}
+
+// ── SHARE ──
+function openShare(){
+  document.getElementById('smodal').classList.add('open');
+  const c=document.getElementById('scanvas'),ctx=c.getContext('2d');
+  const W=360,H=190; c.width=W; c.height=H;
+  const g=ctx.createLinearGradient(0,0,W,H); g.addColorStop(0,'#1e1e2e'); g.addColorStop(1,'#2d1b69');
+  ctx.fillStyle=g; ctx.fillRect(0,0,W,H);
+  ctx.fillStyle='#fbbf24'; ctx.font='bold 10px Arial'; ctx.fillText('BIEK 2026 — STUDY GUIDE',18,24);
+  const nm=currentUser?currentUser.name:'Student';
+  ctx.fillStyle='#fff'; ctx.font='bold 20px Arial'; ctx.fillText(nm+"'s Progress",18,50);
+  ctx.fillStyle='rgba(255,255,255,.45)'; ctx.font='11px Arial'; ctx.fillText('XP: '+xp,18,68);
+  const subs=[['cs','#00b894'],['phy','#e17055'],['mat','#0984e3'],['eng','#a855f7'],['isl','#00cec9'],['urd','#f59e0b']];
+  const lbs=['CS','PHY','MATH','ENG','ISL','URD'];
+  subs.forEach(([s,col],i)=>{
+    const x=18+(i%3)*112, y=88+Math.floor(i/3)*42, p=getSubjPct(s)/100;
+    ctx.fillStyle='rgba(255,255,255,.08)'; ctx.beginPath(); ctx.roundRect(x,y+14,95,7,3); ctx.fill();
+    if(p>0){ctx.fillStyle=col; ctx.beginPath(); ctx.roundRect(x,y+14,95*p,7,3); ctx.fill();}
+    ctx.fillStyle='rgba(255,255,255,.6)'; ctx.font='bold 9px Arial'; ctx.fillText(lbs[i],x,y+11);
+    ctx.fillStyle=col; ctx.fillText(Math.round(p*100)+'%',x+68,y+11);
+  });
+  ctx.fillStyle='rgba(255,255,255,.18)'; ctx.font='9px Arial';
+  ctx.fillText('Exam: May 1, 2026 · '+new Date().toLocaleDateString(),18,178);
+}
+function dlShare(){const a=document.createElement('a');a.download='biek_progress.png';a.href=document.getElementById('scanvas').toDataURL();a.click();}
+function cpShare(){navigator.clipboard.writeText('📚 BIEK 2026 meri progress:
+XP: '+xp+'
+'+['cs','phy','mat','eng','isl','urd'].map(s=>s.toUpperCase()+': '+getSubjPct(s)+'%').join(' · '));pushN('ok','🔗 Copied!','WhatsApp pe paste karo');}
+
+// ── REMINDER ──
+function setupReminder(){
+  if(!('Notification' in window)){pushN('warn','⚠️ Notifications not supported','');return;}
+  Notification.requestPermission().then(p=>{
+    if(p==='granted'){
+      const t=prompt('Reminder time? (e.g. 18:00 for 6pm)','18:00');
+      if(!t) return;
+      const [hh,mm]=t.split(':').map(Number);
+      const now=new Date(), target=new Date();
+      target.setHours(hh,mm,0,0);
+      if(target<=now) target.setDate(target.getDate()+1);
+      setTimeout(()=>new Notification('📚 BIEK 2026',{body:'Study time! Exam nai baar!'}),target-now);
+      pushN('ok','🔔 Reminder set for '+t,'');
+    } else { pushN('warn','⚠️ Notifications blocked','Browser settings se allow karo'); }
   });
 }
 
-function setReminder(time, label) {
-  const slot = [...document.querySelectorAll('.rem-slot')].find(s=>s.querySelector('.rsl').textContent.trim()===label);
-  if(slot) slot.classList.toggle('active');
-  saveReminders();
-  pushNotif('success','🔔 Reminder set!', label+' ('+time+') — Browser notification chahiye toh Allow dabao','🔔');
-  requestNotifPermission(time, label);
-}
+// ── AUTH CHECK ON LOAD ──
+(function(){
+  try{
+    const s=localStorage.getItem('biek_cu');
+    if(s){const u=JSON.parse(s);if(u&&u.id){afterLogin(u);return;}}
+  }catch(e){}
+  // show login
+  const o=document.getElementById('loginOverlay');
+  if(o) o.style.display='flex';
+})();
 
-function setReminderCustom() {
-  const t = document.getElementById('customReminderTime').value;
-  if(!t) { pushNotif('warning','⚠️ Time choose karo','Custom reminder ke liye time select karo','⚠️'); return; }
-  requestNotifPermission(t, 'Custom ('+t+')');
-  document.getElementById('reminderModal').classList.remove('open');
-  pushNotif('success','🔔 Custom reminder set!', t+' pe notification aayegi','🔔');
-}
-
-function saveReminders() {
-  const active = [...document.querySelectorAll('.rem-slot.active')].map(s=>({
-    time: s.querySelector('.rst').textContent,
-    label: s.querySelector('.rsl').textContent.trim()
-  }));
-  localStorage.setItem('biek_reminders', JSON.stringify(active));
-}
-
-async function requestNotifPermission(time, label) {
-  if(!('Notification' in window)) return;
-  if(Notification.permission === 'default') await Notification.requestPermission();
-  if(Notification.permission === 'granted') {
-    // Schedule for today
-    const [hh,mm] = time.split(':').map(Number);
-    const now = new Date();
-    const target = new Date(now);
-    target.setHours(hh,mm,0,0);
-    if(target <= now) target.setDate(target.getDate()+1);
-    const delay = target - now;
-    setTimeout(() => {
-      new Notification('📚 BIEK 2026 — Study Time!', {
-        body: label+' study session shuru karne ka waqt aa gaya!',
-        icon: 'https://em-content.zobj.net/source/google/387/books_1f4da.png',
-        badge: 'https://em-content.zobj.net/source/google/387/books_1f4da.png'
-      });
-    }, delay);
-  }
-}
-
-// ── IMPROVED LIVE COUNTDOWN (hero) ──
-function updateHeroCountdown() {
-  const diff = new Date('2026-05-01T09:00:00') - new Date();
-  if(diff <= 0) {
-    ['hcd-d','hcd-h','hcd-m','hcd-s'].forEach(id => { const el=document.getElementById(id); if(el) el.textContent='00'; });
-    return;
-  }
-  const pad = n => String(n).padStart(2,'0');
-  const dEl=document.getElementById('hcd-d');
-  if(dEl){
-    dEl.textContent = pad(Math.floor(diff/86400000));
-    document.getElementById('hcd-h').textContent = pad(Math.floor((diff%86400000)/3600000));
-    document.getElementById('hcd-m').textContent = pad(Math.floor((diff%3600000)/60000));
-    document.getElementById('hcd-s').textContent = pad(Math.floor((diff%60000)/1000));
-  }
-  // Also update old countdown if exists
-  const d2=document.getElementById('cd-days');
-  if(d2){
-    d2.textContent=pad(Math.floor(diff/86400000));
-    const ch=document.getElementById('cd-hours'),cm=document.getElementById('cd-mins'),cs=document.getElementById('cd-secs');
-    if(ch)ch.textContent=pad(Math.floor((diff%86400000)/3600000));
-    if(cm)cm.textContent=pad(Math.floor((diff%3600000)/60000));
-    if(cs)cs.textContent=pad(Math.floor((diff%60000)/1000));
-  }
-}
-setInterval(updateHeroCountdown, 1000);
-updateHeroCountdown();
-
-// ── SHARE PROGRESS CARD ──
-function openShareModal() {
-  document.getElementById('userMenuModal').classList.remove('open');
-  document.getElementById('shareModal').classList.add('open');
-  drawShareCard();
-}
-
-function drawShareCard() {
-  const canvas = document.getElementById('shareCanvas');
-  const ctx = canvas.getContext('2d');
-  const W = 360, H = 200;
-  canvas.width = W; canvas.height = H;
-
-  // Background gradient
-  const grad = ctx.createLinearGradient(0,0,W,H);
-  grad.addColorStop(0,'#1e1e2e'); grad.addColorStop(1,'#2d1b69');
-  ctx.fillStyle = grad; ctx.fillRect(0,0,W,H);
-
-  // Decorative circle
-  ctx.beginPath(); ctx.arc(W-30,30,60,0,Math.PI*2);
-  ctx.fillStyle='rgba(168,85,247,.08)'; ctx.fill();
-
-  // Title
-  ctx.fillStyle='#fbbf24'; ctx.font='bold 11px Arial';
-  ctx.fillText('BIEK 2026 — COMPLETE STUDY GUIDE', 20, 28);
-
-  // User name
-  const uname = currentUser ? currentUser.name : 'Student';
-  ctx.fillStyle='#ffffff'; ctx.font='bold 22px Arial';
-  ctx.fillText(uname + "'s Progress", 20, 56);
-
-  // XP
-  ctx.fillStyle='rgba(255,255,255,.5)'; ctx.font='12px Arial';
-  ctx.fillText('Total XP: ' + xp + ' · Level: ' + (XP_LEVELS.filter(l=>l.min<=xp).pop()?.name||'Seedling'), 20, 76);
-
-  // Progress bars
-  const subjects = [
-    {name:'CS',  color:'#00b894'}, {name:'PHY', color:'#e17055'},
-    {name:'MATH',color:'#0984e3'}, {name:'ENG', color:'#a855f7'},
-    {name:'ISL', color:'#00cec9'}, {name:'URD', color:'#f59e0b'}
-  ];
-  const subjKeys = ['cs','phy','mat','eng','isl','urd'];
-  subjects.forEach((s,i) => {
-    const x = 20 + (i % 3) * 110;
-    const y = 100 + Math.floor(i/3) * 44;
-    const pct = getSubjPct(subjKeys[i]) / 100;
-    ctx.fillStyle='rgba(255,255,255,.08)'; ctx.beginPath(); ctx.roundRect(x,y+16,90,8,4); ctx.fill();
-    ctx.fillStyle=s.color; ctx.beginPath(); ctx.roundRect(x,y+16,90*pct,8,4); ctx.fill();
-    ctx.fillStyle='rgba(255,255,255,.7)'; ctx.font='bold 10px Arial'; ctx.fillText(s.name,x,y+12);
-    ctx.fillStyle=s.color; ctx.font='bold 10px Arial'; ctx.fillText(Math.round(pct*100)+'%',x+60,y+12);
-  });
-
-  // Footer
-  ctx.fillStyle='rgba(255,255,255,.2)'; ctx.font='10px Arial';
-  ctx.fillText('📚 Study hard · Exam: May 1, 2026 · ' + new Date().toLocaleDateString(), 20, 185);
-}
-
-function downloadShareCard() {
-  const canvas = document.getElementById('shareCanvas');
-  const a = document.createElement('a');
-  a.download = 'biek2026_progress.png';
-  a.href = canvas.toDataURL('image/png');
-  a.click();
-}
-
-function copyShareLink() {
-  const text = '📚 BIEK 2026 meri progress:
-' +
-    'XP: ' + xp + '
-Subjects:
-' +
-    ['cs','phy','mat','eng','isl','urd'].map(s=>'  '+s.toUpperCase()+': '+getSubjPct(s)+'%').join('
-') +
-    '
-
-Site: ' + window.location.href;
-  navigator.clipboard.writeText(text).then(()=>pushNotif('success','🔗 Copied!','WhatsApp ya kahi bhi paste karo','📋'));
-}
-
-// ── PRINT ──
-function printGuide() {
-  document.getElementById('userMenuModal').classList.remove('open');
-  // Open all cards for printing
-  document.querySelectorAll('.qcard').forEach(c => c.classList.add('open'));
-  window.print();
-  pushNotif('success','🖨️ Print dialog khul gaya','Ctrl+P se bhi print kar sakte ho','🖨️');
-}
-
-// ── IMPROVED AI TUTOR ──
-async function callClaude(prompt, maxTokens=1000) {
-  const res = await fetch('https://api.anthropic.com/v1/messages', {
-    method: 'POST',
-    headers: {'Content-Type':'application/json'},
-    body: JSON.stringify({
-      model: 'claude-sonnet-4-20250514',
-      max_tokens: maxTokens,
-      system: 'You are an expert BIEK (Board of Intermediate Education Karachi) tutor. You know the FSc/FA syllabus perfectly. Always give structured, exam-focused answers. Format with **bold** headings, bullet points, and be concise. Use simple English mixed with Urdu terms where helpful.',
-      messages: [{role:'user', content: prompt}]
-    })
-  });
-  const data = await res.json();
-  if(data.error) throw new Error(data.error.message);
-  return data.content.map(b => b.text||'').join('');
-}
-
-// ── CHECK IF USER ALREADY LOGGED IN ──
-function checkExistingLogin() {
-  const stored = localStorage.getItem('biek_current_user');
-  if(stored) {
-    try {
-      const user = JSON.parse(stored);
-      loginSuccess(user);
-      return true;
-    } catch(e) {}
-  }
-  return false;
-}
-
-// ══════════════════════════════════════════════════════════
 // END NEW FEATURES
-// ══════════════════════════════════════════════════════════
 
 </script>
 
